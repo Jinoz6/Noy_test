@@ -5,53 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
 <div class="container">
-    <div>
-        <label for="name">First name</label>
-        <input id="new_name" type="text">
-        <label for="name">Last name</label>
-        <input id="new_lastname" type="text">
-        <label for="name">Age</label>
-        <input id="new_age" type="text"><br/>
-        <input type="button" class=" button_add" value="Add" onclick="addRow()">
+
+    <button id="myBtn" class="button_add">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Modal Header</h2>
+      </div>
+      <div class="modal-body">
+        <form action="">
+            <label>First name</label><br>
+            <input name="new_name" id="new_name" type="text"><br>
+            <label>Last name</label><br>
+            <input name="new_lastname" id="new_lastname" type="text"><br>
+            <label>Age</label><br>
+            <input name="new_age" id="new_age" type="text"><br/>
+            <input type="button" class=" button_add" value="Add" onclick="addRow()">
+            <input type="button" class=" button_add" value="Save" onclick="saveRow(this)">
+            <input type="button" class=" button_add" value="Cancel" onclick="cancel()">
     
+        </form>
+      </div>
+      
     </div>
+  
+  </div>
+
+
+  
+
+   
+        
+
     
     <div>
         <table id="table_data">
-            <tr>
-                <th>
-                    First name
-                </th>
-                <th>
-                    Last name
-                </th>
-                <th>
-                     Age
-                </th>
-                <th>
-                    Manage
-                </th>
-            </tr>
-
-            <tr>
-                <td>jojo</td>
-                <td>momo</td>
-                <td>14</td>
-                <td><input type="button" value="edit"><input type="button" value="del"></td>
-            </tr>
-            <tr>
-                <td>jojo</td>
-                <td>momo</td>
-                <td>14</td>
-                <td><input type="button" value="edit"><input type="button" value="del"></td>
-            </tr>
-          
-
+            <thead>
+                <tr>
+                    <th>
+                        No
+                    </th>
+                    <th>
+                        First name
+                    </th>
+                    <th>
+                        Last name
+                    </th>
+                    <th>
+                         Age
+                    </th>
+                    <th>
+                        Manage
+                    </th>
+                </tr>
+            </thead>
+           
         </table>
     </div>
        
