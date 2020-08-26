@@ -20,20 +20,27 @@
     <!-- Modal content -->
     <div class="modal-content">
       <div class="modal-header">
-        <span class="close">&times;</span>
-        <h2>Modal Header</h2>
+        
+        <h2>Fill detail below</h2>
       </div>
       <div class="modal-body">
         <form action="">
-            <label>First name</label><br>
-            <input name="new_name" id="new_name" type="text"><br>
-            <label>Last name</label><br>
-            <input name="new_lastname" id="new_lastname" type="text"><br>
-            <label>Age</label><br>
-            <input name="new_age" id="new_age" type="text"><br/>
-            <input type="button" class=" button_add" value="Add" onclick="addRow()">
-            <input type="button" class=" button_add" value="Save" onclick="saveRow(this)">
-            <input type="button" class=" button_add" value="Cancel" onclick="cancel()">
+            <div id="inputData">
+                <label>First name</label><br>
+                <input name="new_name" id="new_name" type="text"><br>
+                <label>Last name</label><br>
+                <input name="new_lastname" id="new_lastname" type="text"><br>
+                <label>Age</label><br>
+                <input name="new_age" id="new_age" type="text"><br/>
+            </div>
+           
+            <input type="button" class=" button_add" id="add_btn" value="Add" onclick="addRow()">
+            <input type="button" class=" button_add" id="save_btn" value="Save" >
+            <input type="button" class=" button_add" id="cancel_btn" value="cancel" >
+            
+            
+            
+            
     
         </form>
       </div>
@@ -49,7 +56,7 @@
         
 
     
-    <div>
+    <div class="table_con">
         <table id="table_data">
             <thead>
                 <tr>

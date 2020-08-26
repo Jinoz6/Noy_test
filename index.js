@@ -4,16 +4,19 @@ var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+
+var cancel = document.getElementById("cancel_btn");
 
 // When the user clicks the button, open the modal
 btn.onclick = function () {
   modal.style.display = "block";
+  // document.getElementById("add_btn").style.display = "block";
+  document.getElementById("save_btn").style.display = "none";
+
 };
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+
+cancel.onclick = function () {
   modal.style.display = "none";
 };
 
@@ -23,6 +26,7 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+var rowCount = 0;
 
 function addRow() {
   let new_name = document.getElementById("new_name").value;
@@ -32,7 +36,7 @@ function addRow() {
   var table = document.getElementById("table_data");
   var table_len = table.length;
   var row = table.insertRow(table_len);
-  var rowCount = table.rows.length;
+  rowCount=table.rows.length;
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
   var cell3 = row.insertCell(2);
@@ -49,33 +53,35 @@ function addRow() {
 
 function editRow(td) {
   modal.style.display = "block";
+  document.getElementById("add_btn").style.display = "none";
+  document.getElementById("save_btn").style.display = "inline";
+
+ var index = td.parentElement.parentElement.rowIndex;
   let selectedRow = td.parentElement.parentElement;
+  var x = document.getElementById("save_btn").onclick= () => saveRow(index) ;
   document.getElementById("new_name").value = selectedRow.cells[1].innerHTML;
   document.getElementById("new_lastname").value =
     selectedRow.cells[2].innerHTML;
   document.getElementById("new_age").value = selectedRow.cells[3].innerHTML;
+
+
 }
-function saveRow(td) {
-  var table = document.getElementById("table_data");
-  let selectedRow = td.parentElement.parentElement;
-  table.selectedRow.cells[1].innerHTML = document.getElementById(
+function saveRow(index) {
+  
+  var table = document.getElementById("table_data").rows[index];
+  
+  table.cells[1].innerHTML = document.getElementById(
     "new_name"
   ).value;
-  table.selectedRow.cells[1].innerHTML = document.getElementById(
+  table.cells[2].innerHTML = document.getElementById(
     "new_lastname"
   ).value;
-  table.selectedRow.cells[1].innerHTML = document.getElementById(
+  table.cells[3].innerHTML = document.getElementById(
     "new_age"
   ).value;
+  
 
-  // selectedRow.cells[1].innerHTML = document.getElementById("new_name").value;
 
-  // selectedRow.cells[2].innerHTML = document.getElementById(
-  //   "new_lastname"
-  // ).value;
-  // selectedRow.cells[3].innerHTML = document.getElementById("new_age").value;
-
-  resetForm();
 }
 
 function delRow(td) {

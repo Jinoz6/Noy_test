@@ -1,29 +1,39 @@
+
 body {
-  background-color: gainsboro;
+  /* background-color: gainsboro; */
   font-family: "Open Sans", sans-serif;
 }
 th {
   padding: 10px;
-  background-color: blueviolet;
+  background-color: #000;
+  color: #fff;
+  border-collapse: collapse;
+}
+tr{
+  
 }
 table tr:not(:first-child):hover {
-  background-color: red;
+  background-color:gainsboro;
 }
 input[type="text"],
 input[type="number"] {
-  width: 65%;
-  padding: 12px 20px;
+  width: 100%;
+  padding: 12px 10px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 .container {
   text-align: center;
   margin-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
+}
+.table_con{
+  margin-top: 50px;
 }
 #table_data {
   margin-left: auto;
@@ -31,16 +41,24 @@ input[type="number"] {
 }
 
 .button_add {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
+  outline:none;
+  height: 40px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  width: 130px;
+  border-radius:40px;
+  background: #fff;
+  border: 2px solid #1ECD97;
+  color:#1ECD97;
+  letter-spacing:1px;
+  text-shadow:0;
+ 
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+ 
+.button_add:hover {
+  color:white;
+  background: #1ECD97;
 }
 
 /* The Modal (background) */
@@ -96,27 +114,44 @@ input[type="number"] {
   }
 }
 
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color:#1ECD97;
   color: white;
 }
 
 .modal-body {
   padding: 2px 16px;
+  margin-bottom: 30px;
+  
+}
+#inputData{
+  text-align:left ;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 1200px){
+  .modal-content {
+    width: 30%;
+  }
+
+}
+
+@media only screen and (max-width: 1200px){
+  .modal-content {
+    width: 80%;
+  }
+
+
+
+  @media only screen and (max-width: 600px){
+  .modal-content {
+    width: 100%;
+  }
+  
+  
 }
