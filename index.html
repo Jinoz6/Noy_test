@@ -5,66 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
-<div class="container">
 
-    
+    <div class="container">
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        
-        <h2>Fill detail below</h2>
-      </div>
-      <div class="modal-body">
-            <div id="inputData">
-                <label>First name</label><br>
-                <input name="new_name" id="new_name" type="text"><br>
-                <label>Last name</label><br>
-                <input name="new_lastname" id="new_lastname" type="text"><br>
-                <label>Age</label><br>
-                <input name="new_age" id="new_age" type="text"><br/>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h2>Fill detail below</h2>
+
+                </div>
+
+                <div class="modal-body">
+                    <div id="inputData">
+                        <label>First name</label><br>
+                        <input name="new_name" id="new_name" type="text"><br>
+                        <label>Last name</label><br>
+                        <input name="new_lastname" id="new_lastname" type="text"><br>
+                        <label>Age</label><br>
+                        <input name="new_age" id="new_age" type="text"><br />
+                        <label>Mobile</label><br>
+                        <input name="new_mobile" id="new_mobile" type="text"><br />
+                        <label>Address</label><br>
+                        <textarea  id="new_address" rows="4" cols="30" name="comment" placeholder="Enter text here..."></textarea>
+                        
+                    </div>
+
+                    <input type="button" class=" button_add" id="add_btn" value="Add" onclick="addRow()">
+                    <input type="button" class=" button_add" id="save_btn" value="Save">
+                    <input type="button" class=" button_add" id="cancel_btn" value="cancel">
+
+
+                </div>
+
             </div>
-           
-            <input type="button" class=" button_add" id="add_btn" value="Add" onclick="addRow()">
-            <input type="button" class=" button_add" id="save_btn" value="Save" >
-            <input type="button" class=" button_add" id="cancel_btn" value="cancel" >
-             
-        
-      </div>
-      
-    </div>
-  
-  </div>
+
+        </div>
 
 
-  
 
-   
-        
 
-    
-    
+
+
+
+
+
         <table id="table_data">
             <thead>
                 <tr>
-                
-                        <th id="doc_text" colspan="2"><h2>Documents</h2></th>
-                    <th colspan="3">
+
+                    <th id="doc_text" colspan="2">
+                        <h2>Documents</h2>
+                    </th>
+                    <th colspan="6">
                         <button id="myBtn" class="button_add">Add User</button>
                     </th>
 
-                    
-                    
+
+
                 </tr>
-               
+
                 <tr>
                     <th>
                         No
@@ -76,18 +87,58 @@
                         Last name
                     </th>
                     <th>
-                         Age
+                        Age
+                    </th>
+                    <th>
+                        Mobile
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Status
                     </th>
                     <th>
                         Manage
                     </th>
                 </tr>
+                
             </thead>
-           
+
+            <tbody>
+                <tr>
+                    <td>
+                        No
+                    </td>
+                    <td>
+                        First name
+                    </td>
+                    <td>
+                        Last name
+                    </td>
+                    <td>
+                        Age
+                    </td>
+                    <td>
+                        Mobile
+                    </td>
+                    <td>
+                        Address
+                    </td>
+                    <td>
+                        Status
+                    </td>
+                    <td>
+                        Manage
+                    </td>
+                </tr>
+
+            </tbody>
+
         </table>
     </div>
-       
-    
+
+
     </div>
 
 

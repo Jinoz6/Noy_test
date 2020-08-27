@@ -1,7 +1,7 @@
 
 body {
   /* background-color: gainsboro; */
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Montserrat', sans-serif;
  background-color: #5bc4a8;
   
 }
@@ -12,20 +12,28 @@ body {
   color:#000;
   border-radius: 15px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
   
 }
 th{
+  padding: 10px;
+  border-collapse: collapse;  
+}
+
+td{
 
   padding: 10px;
-  border-collapse: collapse;
-  
-  
+  padding-bottom: 20px;;
+
 }
 table tr:not(:first-child):not(:second-child):hover {
   background-color:gainsboro;
 }
 input[type="text"],
-input[type="number"] {
+input[type="number"],textarea {
   width: 100%;
   padding: 12px 10px;
   margin: 8px 0;
@@ -40,15 +48,9 @@ input[type="number"] {
   margin-top: 100px;
   margin-left: 200px;
   margin-right: 200px;
+  margin-bottom: 100px;
 }
-.table_con{
-  margin-top: 50px;
-}
-#table_data {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 .button_add {
   outline:none;
@@ -71,14 +73,40 @@ input[type="number"] {
   background: #1ECD97;
 }
 
+
+
+
+#inputData{
+  text-align:left ;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#myBtn{
+  
+  float: right;
+  margin-right:30px ;
+  
+
+}
+#doc_text{
+  
+  font-weight: bold;
+  text-align: left;
+  
+  
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 30px; /* Location of the box */
   left: 0;
   top: 0;
+  bottom:50px;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -138,27 +166,7 @@ input[type="number"] {
   margin-bottom: 30px;
   
 }
-#inputData{
-  text-align:left ;
-  margin-left: 60px;
-  margin-right: 60px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-#myBtn{
-  
-  float: right;
-  
 
-}
-#doc_text{
-  font-weight: bold;
-  
-  padding-left:50px ;
-  text-align: left;
-  
-  
-}
 
 @media only screen and (min-width: 1200px){
   .modal-content {
@@ -186,7 +194,7 @@ input[type="number"] {
   }
   #doc_text{
     
-    padding-left:20px ;
+    padding-left:15px ;
     
     
   }
@@ -195,6 +203,15 @@ input[type="number"] {
 
   @media only screen and (max-width: 600px){
   .modal-content {
+    width: 100%;
+  }
+  .container {
+  
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #table_data{
     width: 100%;
   }
   
