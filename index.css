@@ -2,17 +2,26 @@
 body {
   /* background-color: gainsboro; */
   font-family: "Open Sans", sans-serif;
-}
-th {
-  padding: 10px;
-  background-color: #000;
-  color: #fff;
-  border-collapse: collapse;
-}
-tr{
+ background-color: #5bc4a8;
   
 }
-table tr:not(:first-child):hover {
+#table_data{
+ 
+  width: 100%;
+  background-color:  #fff;
+  color:#000;
+  border-radius: 15px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  
+}
+th{
+
+  padding: 10px;
+  border-collapse: collapse;
+  
+  
+}
+table tr:not(:first-child):not(:second-child):hover {
   background-color:gainsboro;
 }
 input[type="text"],
@@ -27,15 +36,16 @@ input[type="number"] {
 }
 
 .container {
-  text-align: center;
-  margin-top: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
+  
+  margin-top: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 .table_con{
   margin-top: 50px;
 }
 #table_data {
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
@@ -78,6 +88,7 @@ input[type="number"] {
 
 /* Modal Content */
 .modal-content {
+  text-align: center;
   position: relative;
   background-color: #fefefe;
   margin: auto;
@@ -134,16 +145,50 @@ input[type="number"] {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+#myBtn{
+  
+  float: right;
+  
+
+}
+#doc_text{
+  font-weight: bold;
+  
+  padding-left:50px ;
+  text-align: left;
+  
+  
+}
+
 @media only screen and (min-width: 1200px){
   .modal-content {
     width: 30%;
   }
+  .container {
+  
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+  
 
 }
 
 @media only screen and (max-width: 1200px){
   .modal-content {
     width: 80%;
+  }
+  .container {
+  
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #doc_text{
+    
+    padding-left:20px ;
+    
+    
   }
 
 

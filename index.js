@@ -43,11 +43,12 @@ function addRow() {
   var cell4 = row.insertCell(3);
   var cell5 = row.insertCell(4);
 
-  cell1.innerHTML = rowCount - 1;
+  cell1.innerHTML = rowCount - 2;
   cell2.innerHTML = new_name;
   cell3.innerHTML = new_lastname;
   cell4.innerHTML = new_age;
-  cell5.innerHTML = `<input type="button"  value="Edit" id="btn_edit" onclick="editRow(this)"><input type="button"  value="Del"  onclick="delRow(this)">`;
+  cell5.innerHTML = `<input type="image" src="edit.png" width="20" height="20"  value="Edit" id="btn_edit" onclick="editRow(this)">&emsp;<input type="image" src="bin.png" width="20" height="20"  value="Del"  onclick="delRow(this)">`;
+  modal.style.display = "none";
   resetForm();
 }
 
@@ -79,6 +80,7 @@ function saveRow(index) {
   table.cells[3].innerHTML = document.getElementById(
     "new_age"
   ).value;
+  modal.style.display = "none";
   
 
 
