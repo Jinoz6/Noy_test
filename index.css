@@ -3,35 +3,67 @@ body {
   /* background-color: gainsboro; */
   font-family: 'Montserrat', sans-serif;
  background-color: #5bc4a8;
-  
-}
-#table_data{
  
-  width: 100%;
+}
+#card{
   background-color:  #fff;
-  color:#000;
   border-radius: 15px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  text-align: left;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 40px;
+  margin-top: 20px;
+
+}
+
+#table_data{
+ 
+   width: 100%;
+  /* border-radius: 15px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+  
+  /* padding-left: 40px; 
+  padding-right: 40px; */
+  text-align: left;
+}
+tbody,tr{
+  display:block;
   
 }
+
+
 th{
+
+  width: 100px; 
   padding: 10px;
   border-collapse: collapse;  
+ 
 }
 
 td{
-
   padding: 10px;
-  padding-bottom: 20px;;
+  padding-bottom: 20px;
+  flex-basis:100%;
+  
+}
+tr{
+  width: 100%;
+  display:flex;
+}
 
+#table_tbody{
+  float: left;
+  height:500px;
+  overflow-y:auto;
+  width: 100%;
+  
+
+  
 }
-table tr:not(:first-child):not(:second-child):hover {
-  background-color:gainsboro;
+
+#table_tbody::-webkit-scrollbar {
+  display: none;
 }
+
 input[type="text"],
 input[type="number"],textarea {
   width: 100%;
@@ -45,10 +77,10 @@ input[type="number"],textarea {
 
 .container {
   
-  margin-top: 100px;
+  /* margin-top: 20px; */
   margin-left: 200px;
   margin-right: 200px;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
 }
 
 
@@ -73,9 +105,6 @@ input[type="number"],textarea {
   background: #1ECD97;
 }
 
-
-
-
 #inputData{
   text-align:left ;
   margin-left: 60px;
@@ -86,7 +115,8 @@ input[type="number"],textarea {
 #myBtn{
   
   float: right;
-  margin-right:30px ;
+  margin-right: 20px;
+  
   
 
 }
@@ -98,12 +128,73 @@ input[type="number"],textarea {
   
 }
 
+.switch {
+  margin-top: 10px;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #1ECD97;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #1ECD97;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 30px; /* Location of the box */
+  padding-top: 0px; /* Location of the box */
   left: 0;
   top: 0;
   bottom:50px;
@@ -174,7 +265,7 @@ input[type="number"],textarea {
   }
   .container {
   
-    margin-top: 100px;
+    /* margin-top: 100px; */
     margin-left: 200px;
     margin-right: 200px;
   }
@@ -188,7 +279,7 @@ input[type="number"],textarea {
   }
   .container {
   
-    margin-top: 100px;
+    /* margin-top: 100px; */
     margin-left: auto;
     margin-right: auto;
   }
@@ -197,6 +288,7 @@ input[type="number"],textarea {
     padding-left:15px ;
     
     
+
   }
 
 
@@ -207,7 +299,7 @@ input[type="number"],textarea {
   }
   .container {
   
-    margin-top: 100px;
+    /* margin-top: 100px; */
     margin-left: auto;
     margin-right: auto;
   }

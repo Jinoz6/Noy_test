@@ -9,12 +9,16 @@ var cancel = document.getElementById("cancel_btn");
 // When the user clicks the button, open the modal
 btn.onclick = function () {
   modal.style.display = "block";
-  // document.getElementById("add_btn").style.display = "block";
+  
   document.getElementById("save_btn").style.display = "none";
+  // document.getElementById("status_text").style.display = "none";
+  // document.getElementById("new_status").style.display = "none";
 };
 
 cancel.onclick = function () {
   modal.style.display = "none";
+  document.getElementById("add_btn").style.display = "inline";
+  resetForm();
 };
 
 // When the user clicks anywhere outside of the modal, close it
@@ -31,9 +35,15 @@ function addRow() {
   let new_age = document.getElementById("new_age").value;
   let new_mobile = document.getElementById("new_mobile").value;
   let new_address = document.getElementById("new_address").value;
+  let new_status = document.getElementById("new_status");
+
+  new_status.checked ? new_status = "Active" : new_status="Inactive";
+  
+  console.log(new_status);
 
 
-  var table = document.getElementById("table_data");
+
+  var table = document.getElementById("table_tbody");
   var table_len = table.length;
   var row = table.insertRow(table_len);
   rowCount = table.rows.length;
@@ -46,13 +56,13 @@ function addRow() {
   var cell7 = row.insertCell(6);
   var cell8 = row.insertCell(7);
 
-  cell1.innerHTML = rowCount - 2;
+  cell1.innerHTML = rowCount;
   cell2.innerHTML = new_name;
   cell3.innerHTML = new_lastname;
   cell4.innerHTML = new_age;
   cell5.innerHTML = new_mobile;
   cell6.innerHTML = new_address;
-  cell7.innerHTML = new_address;
+  cell7.innerHTML = new_status;
   cell8.innerHTML = `<input type="image" src="edit.png" width="20" height="20"  value="Edit" id="btn_edit" onclick="editRow(this)">&emsp;<input type="image" src="bin.png" width="20" height="20"  value="Del"  onclick="delRow(this)">`;
   modal.style.display = "none";
   resetForm();
@@ -62,6 +72,8 @@ function editRow(td) {
   modal.style.display = "block";
   document.getElementById("add_btn").style.display = "none";
   document.getElementById("save_btn").style.display = "inline";
+  document.getElementById("status_text").style.display = "inline";
+  document.getElementById("new_status").style.display = "block";
 
   var index = td.parentElement.parentElement.rowIndex;
   let selectedRow = td.parentElement.parentElement;
@@ -72,24 +84,33 @@ function editRow(td) {
   document.getElementById("new_age").value = selectedRow.cells[3].innerHTML;
   document.getElementById("new_mobile").value = selectedRow.cells[4].innerHTML;
   document.getElementById("new_address").value = selectedRow.cells[5].innerHTML;
+
+  console.log(index);
 }
+
 function saveRow(index) {
-  var table = document.getElementById("table_data").rows[index];
+  var table = document.getElementById("table_tbody").rows[index-2];
 
   table.cells[1].innerHTML = document.getElementById("new_name").value;
   table.cells[2].innerHTML = document.getElementById("new_lastname").value;
   table.cells[3].innerHTML = document.getElementById("new_age").value;
   table.cells[4].innerHTML = document.getElementById("new_mobile").value;
   table.cells[5].innerHTML = document.getElementById("new_address").value;
+  table.cells[6].innerHTML = document.getElementById("new_Status").value;
   document.getElementById("add_btn").style.display = "inline";
   modal.style.display = "none";
   resetForm();
 }
 
+function statusCheck(){
+  let status = document.getElementById("new_status").checked;
+  return status;
+}
+
 function delRow(td) {
   if (confirm("Are you sure to delete this record ?")) {
-    index = td.parentElement.parentElement.rowIndex;
-    document.getElementById("table_data").deleteRow(index);
+    index = td.parentElement.parentElement.parentElement.rowIndex;
+    document.getElementById("table_tbody").deleteRow(index);
   }
 }
 function resetForm() {
