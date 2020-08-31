@@ -108,7 +108,7 @@ function editRow(td) {
 }
 
 function saveRow(index) {
-  var table = document.getElementById("table_tbody").rows[index-2];
+  var table = document.getElementById("table_tbody").rows[index-1];
   new_status.checked ? new_status = "Active" : new_status="Inactive";
 
 

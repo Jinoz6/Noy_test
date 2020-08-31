@@ -11,7 +11,7 @@ body {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;  
+  margin-top: 40px;  
 
 }
 
@@ -35,9 +35,12 @@ body {
 }
 td{
   text-align: center;
-  padding: 20px;
+  padding: 17px;
 }
-thead{
+th{
+  position: sticky;
+  top: 0;
+  background-color:  #fff;
   
 }
 
@@ -91,6 +94,9 @@ input[type="number"],textarea {
   cursor: pointer;
   transition: all 0.25s ease;
 }
+
+
+
  
 .button_add:hover {
   color:white;
@@ -108,8 +114,8 @@ input[type="number"],textarea {
 #myBtn{
   
   float: right;
-  margin-right:30px;
-  margin-top: 15px;
+  margin-right:40px;
+  margin-top: 20px;
   
 
 }
