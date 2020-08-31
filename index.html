@@ -1,143 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+        <title>Document</title>
+    </head>
 
-<body>
+    <body>
 
-    <div class="container">
-        <div id="card">
-             <!-- The Modal -->
-        <div id="myModal" class="modal">
+        <div class="container">
 
-            <!-- Modal content -->
-            <div class="modal-content">
+            <div id="myModal" class="modal">
 
-                <div class="modal-header">
+                <!-- Modal content -->
+                <div class="modal-content">
 
-                    <h2>Fill detail below</h2>
+                    <div class="modal-header">
 
-                </div>
+                        <h2>Fill detail below</h2>
 
-                <div class="modal-body">
-                    <div id="inputData">
-                        <label>First name</label><br>
-                        <input name="new_name" id="new_name" type="text"><br>
-                        <label>Last name</label><br>
-                        <input name="new_lastname" id="new_lastname" type="text"><br>
-                        <label>Age</label><br>
-                        <input name="new_age" id="new_age" type="text"><br />
-                        <label>Mobile</label><br>
-                        <input name="new_mobile" id="new_mobile" type="text"><br />
-                        <label>Address</label><br>
-                        <textarea  id="new_address" rows="4" cols="30" name="comment" placeholder="Enter text here..."></textarea><br>
-                        <label id="status_text">Status of user</label><br/>
-                        <label  class="switch" >
-                            <input id="new_status" type="checkbox" >
-                            <span class="slider round"></span>
-                          </label>
-                        
                     </div>
 
-                    <input type="button" class=" button_add" id="add_btn" value="Add" onclick="addRow()">
-                    <input type="button" class=" button_add" id="save_btn" value="Save">
-                    <input type="button" class=" button_add" id="cancel_btn" value="cancel">
+                    <div class="modal-body">
+                        <div id="inputData">
+                            <label>First name</label><br>
+                            <input name="new_name" id="new_name" type="text"><br>
+                            <label>Last name</label><br>
+                            <input name="new_lastname" id="new_lastname" type="text"><br>
+                            <label>Age</label><br>
+                            <input name="new_age" id="new_age" type="text"><br />
+                            <label>Mobile</label><br>
+                            <input name="new_mobile" id="new_mobile" type="text"><br />
+                            <label>Address</label><br>
+                            <textarea  id="new_address" rows="4" cols="30" name="comment" placeholder="Enter text here..."></textarea><br>
+                            <label id="status_text">Status of user</label><br/>
+                            <label  class="switch" >
+                                <input id="new_status" type="checkbox" >
+                                <span class="slider round"></span>
+                            </label>
+                            
+                        </div>
 
+                        <input type="button" class=" button_add" id="add_btn" value="Add" onclick="addRow()">
+                        <input type="button" class=" button_add" id="save_btn" value="Save">
+                        <input type="button" class=" button_add" id="cancel_btn" value="cancel">
+
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+            <div id="card">
 
+                <div style="display: inline;">
 
+                    <label><b style="font-size: 2rem; font-weight: bold; margin-left: 30px; margin-top: 15px;">Docuemnt</b></label>
+                    
 
-
-
-
-
-
-
-        <table id="table_data">
-            <thead>
-                <tr>
-                    <th id="doc_text">
-                        <h2>Documents</h2>
-                    </th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th colspan="7">
+                    <label>
                         <button id="myBtn" class="button_add">Add User</button>
-                    </th>
+                    </label>
+                </div>
 
-                </tr>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+               
+                <div id="table_container">
+                    <table id="table_data">
+                        <thead>
+                        
+                            <tr>
+                                <th>
+                                    No
+                                </th>
+                                <th>
+                                    First name
+                                </th>
+                                <th>
+                                    Last name
+                                </th>
+                                <th>
+                                    Age
+                                </th>
+                                <th>
+                                    Mobile
+                                </th>
+                                <th>
+                                    Address
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                    Manage
+                                </th>
+                            </tr>
+                            
+                        </thead>
+    
+                        <tbody id="table_tbody">
+                        
+    
+                        </tbody>
+    
+                    </table>
+                </div>
 
-                   
-
-
-
-
-
-                <tr>
-                    <th>
-                        No
-                    </th>
-                    <th>
-                        First name
-                    </th>
-                    <th>
-                        Last name
-                    </th>
-                    <th>
-                        Age
-                    </th>
-                    <th>
-                        Mobile
-                    </th>
-                    <th>
-                        Address
-                    </th>
-                    <th>
-                        Status
-                    </th>
-                    <th>
-                        Manage
-                    </th>
-                </tr>
-                
-            </thead>
-
-            <tbody id="table_tbody">
                
 
-            </tbody>
 
-        </table>
-    </div>
-
-
-    </div>
-
+            
+            </div>
 
 
         </div>
 
 
+        <script src="index.js"></script>
 
-       
-
-
-    <script src="index.js"></script>
-
-</body>
+    </body>
 
 </html>

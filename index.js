@@ -39,7 +39,7 @@ function addRow() {
 
   new_status.checked ? new_status = "Active" : new_status="Inactive";
   
-  console.log(new_status);
+  
 
 
 
@@ -72,8 +72,9 @@ function editRow(td) {
   modal.style.display = "block";
   document.getElementById("add_btn").style.display = "none";
   document.getElementById("save_btn").style.display = "inline";
-  document.getElementById("status_text").style.display = "inline";
-  document.getElementById("new_status").style.display = "block";
+  // document.getElementById("status_text").style.display = "inline";
+  // document.getElementById("new_status").style.display = "block";
+  
 
   var index = td.parentElement.parentElement.rowIndex;
   let selectedRow = td.parentElement.parentElement;
@@ -85,26 +86,42 @@ function editRow(td) {
   document.getElementById("new_mobile").value = selectedRow.cells[4].innerHTML;
   document.getElementById("new_address").value = selectedRow.cells[5].innerHTML;
 
+  const y = selectedRow.cells[6].innerHTML;
+
+  if (y === "Active"){
+
+    document.getElementById('new_status').checked = true;
+
+  }
+  else{
+
+    document.getElementById('new_status').checked = false;
+  }
+
+  
+  
+
+
+  console.log(y);
+
   console.log(index);
 }
 
 function saveRow(index) {
   var table = document.getElementById("table_tbody").rows[index-2];
+  new_status.checked ? new_status = "Active" : new_status="Inactive";
+
 
   table.cells[1].innerHTML = document.getElementById("new_name").value;
   table.cells[2].innerHTML = document.getElementById("new_lastname").value;
   table.cells[3].innerHTML = document.getElementById("new_age").value;
   table.cells[4].innerHTML = document.getElementById("new_mobile").value;
   table.cells[5].innerHTML = document.getElementById("new_address").value;
-  table.cells[6].innerHTML = document.getElementById("new_Status").value;
+  table.cells[6].innerHTML = document.getElementById("new_status").checked ? new_status = "Active" : new_status="Inactive";
   document.getElementById("add_btn").style.display = "inline";
+  // console.log(new_status);
   modal.style.display = "none";
   resetForm();
-}
-
-function statusCheck(){
-  let status = document.getElementById("new_status").checked;
-  return status;
 }
 
 function delRow(td) {
@@ -119,4 +136,6 @@ function resetForm() {
   document.getElementById("new_age").value = "";
   document.getElementById("new_mobile").value = "";
   document.getElementById("new_address").value="";
+  document.getElementById("new_status").checked = false;
+  
 }
