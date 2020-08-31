@@ -123,12 +123,27 @@ function saveRow(index) {
   modal.style.display = "none";
   resetForm();
 }
+function setIndex(){
+  var table = document.getElementById("table_tbody");
+  rowCount = table.rows.length;
+  console.log(rowCount);
+
+  for(var i=0; i<=rowCount; i++)
+  {
+    table.rows[i].cells[0].innerHTML = i+1;
+
+}
+
+}
 
 function delRow(td) {
   if (confirm("Are you sure to delete this record ?")) {
     index = td.parentElement.parentElement.parentElement.rowIndex;
     document.getElementById("table_tbody").deleteRow(index);
   }
+ 
+  setIndex();
+  
 }
 function resetForm() {
   document.getElementById("new_name").value = "";
