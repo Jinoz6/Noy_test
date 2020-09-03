@@ -27,17 +27,33 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+var arrayList = [];
 var rowCount = 0;
 
+
+
+
 function addRow() {
-  let new_name = document.getElementById("new_name").value;
-  let new_lastname = document.getElementById("new_lastname").value;
-  let new_age = document.getElementById("new_age").value;
-  let new_mobile = document.getElementById("new_mobile").value;
-  let new_address = document.getElementById("new_address").value;
+  // let new_name = document.getElementById("new_name").value;
+  // let new_lastname = document.getElementById("new_lastname").value;
+  // let new_age = document.getElementById("new_age").value;
+  // let new_mobile = document.getElementById("new_mobile").value;
+  // let new_address = document.getElementById("new_address").value;
   let new_status = document.getElementById("new_status");
+  
 
   new_status.checked ? new_status = "Active" : new_status="Inactive";
+  let rowObject = new Object();
+
+  
+   rowObject.firstname = document.getElementById("new_name").value;
+   rowObject.lastname = document.getElementById("new_lastname").value;
+   rowObject.age = document.getElementById("new_age").value;
+   rowObject.mobile = document.getElementById("new_mobile").value;
+   rowObject.address = document.getElementById("new_address").value;
+   rowObject.status = new_status;
+   arrayList.push(rowObject);
+  
   
   
 
@@ -46,27 +62,66 @@ function addRow() {
   var table = document.getElementById("table_tbody");
   var table_len = table.length;
   var row = table.insertRow(table_len);
-  rowCount = table.rows.length;
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  var cell5 = row.insertCell(4);
-  var cell6 = row.insertCell(5);
-  var cell7 = row.insertCell(6);
-  var cell8 = row.insertCell(7);
+  rowCount = arrayList.length;
+  tableRow = table.rows.length;
+  let pages = Math.ceil(arrayList.length/8);
 
-  cell1.innerHTML = rowCount;
-  cell2.innerHTML = new_name;
-  cell3.innerHTML = new_lastname;
-  cell4.innerHTML = new_age;
-  cell5.innerHTML = new_mobile;
-  cell6.innerHTML = new_address;
-  cell7.innerHTML = new_status;
-  cell8.innerHTML = `<input type="image" src="edit.png" width="20" height="20"  value="Edit" id="btn_edit" onclick="editRow(this)">&emsp;<input type="image" src="bin.png" width="20" height="20"  value="Del"  onclick="delRow(this)">`;
-  modal.style.display = "none";
-  resetForm();
+  if( tableRow > 8 ){ 
+    
+    document.getElementById("table_tbody").innerHTML = " ";
+    document.getElementById("pagination-wrapper").innerHTML = pageButtons(pages);
+    console.log(pages);
+   
+
+
+  }else{
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+    var cell7 = row.insertCell(6);
+    var cell8 = row.insertCell(7);
+  
+    cell1.innerHTML = rowCount;
+    cell2.innerHTML = rowObject.firstname;
+    cell3.innerHTML = rowObject.lastname;
+    cell4.innerHTML = rowObject.age;
+    cell5.innerHTML = rowObject.mobile;
+    cell6.innerHTML = rowObject.address;
+    cell7.innerHTML = rowObject.status;
+    cell8.innerHTML = `<input type="image" src="edit.png" width="20" height="20"  value="Edit" id="btn_edit" onclick="editRow(this)">&emsp;<input type="image" src="bin.png" width="20" height="20"  value="Del"  onclick="delRow(this)">`;
+    // modal.style.display = "none";
+    console.log(arrayList);
+    resetForm();
+  }
+ 
 }
+
+
+function pageButtons(p){
+
+  let node = document.getElementById("pagination-wrapper");
+  let noNer = `<li><a class="pagination-link">1</a></li>`;
+  for(let i =0;i<p;i++){
+    node.innerHTML= noNer; 
+  }
+
+  
+  
+  return `<li><a class="pagination-link" aria-label="Goto page 1">1</a></li>`;
+}
+
+function onNext(){
+ 
+}
+
+function onPrevious(){
+ 
+}
+
+
 
 function editRow(td) {
   modal.style.display = "block";
@@ -102,7 +157,7 @@ function editRow(td) {
   
 
 
-  console.log(y);
+  
 
   console.log(index);
 }
@@ -118,9 +173,22 @@ function saveRow(index) {
   table.cells[4].innerHTML = document.getElementById("new_mobile").value;
   table.cells[5].innerHTML = document.getElementById("new_address").value;
   table.cells[6].innerHTML = document.getElementById("new_status").checked ? new_status = "Active" : new_status="Inactive";
+  
+  let rowObject = new Object();
+
+  rowObject.firstname = document.getElementById("new_name").value;
+  rowObject.lastname = document.getElementById("new_lastname").value;
+  rowObject.age = document.getElementById("new_age").value;
+  rowObject.mobile = document.getElementById("new_mobile").value;
+  rowObject.address = document.getElementById("new_address").value;
+  rowObject.status = document.getElementById("new_status").checked ? new_status = "Active" : new_status="Inactive";
+  arrayList[index-1] = rowObject;
+
+
   document.getElementById("add_btn").style.display = "inline";
-  // console.log(new_status);
   modal.style.display = "none";
+  console.log(index);
+  console.log(arrayList);
   resetForm();
 }
 function setIndex(){
@@ -128,7 +196,7 @@ function setIndex(){
   rowCount = table.rows.length;
   console.log(rowCount);
 
-  for(var i=0; i<=rowCount; i++)
+  for(var i=0; i<rowCount; i++)
   {
     table.rows[i].cells[0].innerHTML = i+1;
 
@@ -137,11 +205,12 @@ function setIndex(){
 }
 
 function delRow(td) {
+ let index = td.parentElement.parentElement.rowIndex;
   if (confirm("Are you sure to delete this record ?")) {
-    index = td.parentElement.parentElement.parentElement.rowIndex;
-    document.getElementById("table_tbody").deleteRow(index);
+    
+    document.getElementById("table_tbody").deleteRow(index-1);
   }
- 
+  arrayList.splice(index-1,1);
   setIndex();
   
 }
