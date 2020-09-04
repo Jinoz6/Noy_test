@@ -29,6 +29,9 @@ window.onclick = function (event) {
 };
 var arrayList = [];
 var rowCount = 0;
+var table = document.getElementById("table_tbody");
+let current_page = 1;
+
 
 
 
@@ -45,7 +48,7 @@ function addRow() {
   new_status.checked ? new_status = "Active" : new_status="Inactive";
   let rowObject = new Object();
 
-  
+   rowObject.no = rowCount+1;
    rowObject.firstname = document.getElementById("new_name").value;
    rowObject.lastname = document.getElementById("new_lastname").value;
    rowObject.age = document.getElementById("new_age").value;
@@ -65,12 +68,14 @@ function addRow() {
   rowCount = arrayList.length;
   tableRow = table.rows.length;
   let pages = Math.ceil(arrayList.length/8);
+  
 
   if( tableRow > 8 ){ 
     
     document.getElementById("table_tbody").innerHTML = " ";
-    document.getElementById("pagination-wrapper").innerHTML = pageButtons(pages);
-    console.log(pages);
+  //  let wrapper =  document.getElementById("pagination-wrapper") ;
+   setPagination(pages);
+
    
 
 
@@ -84,7 +89,7 @@ function addRow() {
     var cell7 = row.insertCell(6);
     var cell8 = row.insertCell(7);
   
-    cell1.innerHTML = rowCount;
+    cell1.innerHTML = rowObject.no;
     cell2.innerHTML = rowObject.firstname;
     cell3.innerHTML = rowObject.lastname;
     cell4.innerHTML = rowObject.age;
@@ -98,28 +103,75 @@ function addRow() {
   }
  
 }
-
-
 function pageButtons(p){
 
-  let node = document.getElementById("pagination-wrapper");
-  let noNer = `<li><a class="pagination-link">1</a></li>`;
-  for(let i =0;i<p;i++){
-    node.innerHTML= noNer; 
+  let button = document.createElement("button");
+  button.classList.add("pagination-link");
+  button.innerHTML=p;
+  button.addEventListener("click",function(){
+  
+   displayItem(8,p);
+ });
+  return button;
+ 
+ }
+
+
+function displayItem(row,p){
+  document.getElementById("table_tbody").innerHTML = " ";
+  let page =p;
+  console.log(page);
+  let start = row*(page-1);
+  let end = start +row;
+  let pagination = arrayList.slice(start,end);
+  // console.log(start);
+  // console.log(end);
+  console.log(pagination);
+  
+
+  for (let i= 0;i<pagination.length;i++){
+    let row = table.insertRow(i);
+    
+
+
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+    var cell7 = row.insertCell(6);
+    var cell8 = row.insertCell(7);
+  
+    cell1.innerHTML = pagination[i].no;
+    cell2.innerHTML = pagination[i].firstname;
+    cell3.innerHTML = pagination[i].lastname;
+    cell4.innerHTML = pagination[i].age;
+    cell5.innerHTML = pagination[i].mobile;
+    cell6.innerHTML = pagination[i].address;
+    cell7.innerHTML = pagination[i].status;
+    cell8.innerHTML = `<input type="image" src="edit.png" width="20" height="20"  value="Edit" id="btn_edit" onclick="editRow(this)">&emsp;<input type="image" src="bin.png" width="20" height="20"  value="Del"  onclick="delRow(this)">`;
+    console.log(pagination);
+}
+
+}
+
+function setPagination(page){
+  let wrapper =  document.getElementById("pagination-wrapper") ;
+  wrapper.innerHTML = " ";
+
+ 
+
+  for(let i= 1; i<=page;i++){
+    let btn = pageButtons(i);
+    wrapper.appendChild(btn);
+
   }
 
-  
-  
-  return `<li><a class="pagination-link" aria-label="Goto page 1">1</a></li>`;
 }
 
-function onNext(){
- 
-}
 
-function onPrevious(){
- 
-}
+
 
 
 
