@@ -8,17 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
 
-            html {
-            background-color: #5bc4a8;
-            
-            
-            }
-            .table-container::-webkit-scrollbar {
-            display: none;
-            }
-            .modal-card-body::-webkit-scrollbar {
-            display: none;
-            }
+            html {background-color: #5bc4a8; }
+
+            .table-container::-webkit-scrollbar { display: none;}
+            .modal-card-body::-webkit-scrollbar { display: none;}
+
             .switch {
             margin-top: 10px;
             position: relative;
@@ -27,11 +21,11 @@
             height: 34px;
             }
 
-            .switch input { 
-                opacity: 0;
-                width: 0;
-                height: 0;
-                }
+            .switch input {
+             opacity: 0;
+             width: 0;
+             height: 0;
+            }
 
             .slider {
             position: absolute;
@@ -45,25 +39,21 @@
             transition: .4s;
             }
 
-                .slider:before {
-                position: absolute;
-                content: "";
-                height: 26px;
-                width: 26px;
-                left: 4px;
-                bottom: 4px;
-                background-color: white;
-                -webkit-transition: .4s;
-                transition: .4s;
-                }
+          .slider:before {
+           position: absolute;
+           content: "";
+           height: 26px;
+           width: 26px;
+           left: 4px;
+           bottom: 4px;
+           background-color: white;
+           -webkit-transition: .4s;
+           transition: .4s;
+           }
 
-            input:checked + .slider {
-            background-color: #1ECD97;
-            }
+            input:checked + .slider {background-color: #1ECD97;}
 
-            input:focus + .slider {
-            box-shadow: 0 0 1px #1ECD97;
-            }
+            input:focus + .slider { box-shadow: 0 0 1px #1ECD97;}
 
             input:checked + .slider:before {
             -webkit-transform: translateX(26px);
@@ -72,13 +62,9 @@
             }
 
             /* Rounded sliders */
-            .slider.round {
-            border-radius: 34px;
-            }
+            .slider.round {border-radius: 34px; }
 
-            .slider.round:before {
-            border-radius: 50%;
-            }
+            .slider.round:before { border-radius: 50%;}
 
             .table-container {
             -webkit-overflow-scrolling: touch;
@@ -90,8 +76,7 @@
             th{
             position: sticky;
             top: 0;
-            background-color:  #fff;
-            
+            background-color:  #fff;  
             }
         </style>
 
@@ -101,180 +86,170 @@
 
     <body>
 
-        <div id="myModal" class="modal">
+                <div id="myModal" class="modal">
 
-            <div class="modal-background"></div>
-                 <div class="modal-card" style="width: 400px;">
-                     <header class="modal-card-head">
+                    <div class="modal-background">
+                        <div class="modal-card" style="width: 400px;">
 
-                        <p class="modal-card-title" style="text-align: center;">Fill detail below</p>
-                    
+                            <header class="modal-card-head">
 
-                     </header>
-                     <section class="modal-card-body">
+                                <p class="modal-card-title" style="text-align: center;">Fill detail below</p>
+                            
+                            </header>
 
-                        <!-- Content ... -->
-                        <div id="inputData">
+                            <section class="modal-card-body">
 
-                             <div class="field">
-                                 <div class="label">
-                                    <label>First name</label><br>
-                                 </div>
-                                 <div class="control">
-                                    <input name="new_name" id="new_name" type="text" class="input"><br>
-                                 </div> 
-                             </div>
+                                <!-- Content ... -->
+                                <div id="inputData">
 
-                             <div class="field">
-                                <div class="label">
-                                   <label>Last name</label><br>
-                                </div>
-                                <div class="control">
-                                   <input  name="new_name" id="new_lastname" type="text" class="input"><br>
-                                </div> 
-                            </div>
-                           
-                            <div class="field">
-                                <div class="label">
-                                   <label>Age</label><br>
-                                </div>
-                                <div class="control">
-                                   <input  name="new_name" id="new_age" type="text" class="input"><br>
-                                </div> 
-                            </div>
+                                    <div class="field">
 
-                            <div class="field">
-                                <div class="label">
-                                   <label>Mobile</label><br>
-                                </div>
-                                <div class="control">
-                                   <input  name="new_name" id="new_mobile" type="text" class="input"><br>
-                                </div> 
-                            </div>
-                           
-                            <div class="field">
-                                <div class="label">
-                                   <label>Address</label><br>
-                                </div>
-                                <div class="control">
-                                    <textarea  id="new_address" class="textarea" placeholder="Enter text here..."></textarea><br>
-                                </div> 
-                            </div>
+                                        <div class="label">
+                                            <label>First name</label><br>
+                                        </div>
 
-                            <div class="field">
-                                <label id="status_text" class="label">Status of user</label>
-                            <label  class="switch" >
-                                <input id="new_status" type="checkbox" >
-                                <span class="slider round"></span>
-                            </label>
+                                        <div class="control">
+                                            <input name="new_name" id="new_name" type="text" class="input"><br>
+                                        </div> 
 
-                            </div>
-                                                       
-                        </div>
-                     </section>
-                        <footer class="modal-card-foot">
-                        
-                           
-                            <button type="button" class=" button is-primary " id="add_btn" value="Add" onclick="addRow()">Add</button>
-                            <button type="button" class=" button is-primary" id="save_btn" value="Save">Save</button>
-                            <button type="button" class=" button is-primary is-outlined" id="cancel_btn" value="cancel">Cancel</button>
-                           
+                                    </div>
 
-                        </footer>
-                
-                 </div>
-            
-        </div>
+                                    <div class="field">
 
-    
-        <div class="container">
+                                        <div class="label">
+                                        <label>Last name</label><br>
+                                        </div>
 
-            <div class="card" style="height: 600px; margin-top: 50px;">
+                                        <div class="control">
+                                        <input  name="new_name" id="new_lastname" type="text" class="input"><br>
+                                        </div> 
 
-                <div class="container">
-                    <div class="card-content">
-
-                        <div>
-
-
-                        <h1 style="display: inline-block; margin-left: 28px;" class="title">Document</h1>
-    
-                        <button id="myBtn" class="button is-primary" style="float: right;margin-right: 39px;">Add User</button>
-    
-                    
-                        
-                    
-                        </div>
-    
-                        <br/>
-                    
-                    
-            
-
-                       <div class="table-container">
-                        <table id="table_data" class="table is-fullwidth" style="text-align: center;">
-                        
-                            <thead>
-                        
-                                <tr>
-                                    <th>
-                                        No
-                                    </th>
-                                    <th>
-                                        First name
-                                    </th>
-                                    <th>
-                                        Last name
-                                    </th>
-                                    <th>
-                                        Age
-                                    </th>
-                                    <th>
-                                        Mobile
-                                    </th>
-                                    <th>
-                                        Address
-                                    </th>
-                                    <th>
-                                        Status
-                                    </th>
-                                    <th>
-                                        Manage
-                                    </th>
-                                </tr>
+                                    </div>
                                 
-                            </thead>
+                                    <div class="field">
+
+                                        <div class="label">
+                                        <label>Age</label><br>
+                                        </div>
+
+                                        <div class="control">
+                                        <input  name="new_name" id="new_age" type="text" class="input"><br>
+                                        </div> 
+
+                                    </div>
+
+                                    <div class="field">
+
+                                        <div class="label">
+                                        <label>Mobile</label><br>
+                                        </div>
+
+                                        <div class="control">
+                                        <input  name="new_name" id="new_mobile" type="text" class="input"><br>
+                                        </div> 
+
+                                </div>
+                                
+                                    <div class="field">
+
+                                        <div class="label">
+                                        <label>Address</label><br>
+                                        </div>
+
+                                        <div class="control">
+                                        <textarea  id="new_address" class="textarea" placeholder="Enter text here..."></textarea><br>
+                                        </div> 
+
+                                    </div>
+
+                                    <div class="field">
+                                        <label id="status_text" class="label">Status of user</label>
+
+                                        <label  class="switch" >
+                                            <input id="new_status" type="checkbox" >
+                                            <span class="slider round"></span>
+                                        </label>
+
+                                    </div>
+                                                            
+                                </div>
+                            </section>
+
+                            <footer class="modal-card-foot">
+                                
+                                
+                                    <button type="button" class=" button is-primary " id="add_btn" value="Add" onclick="addRow()">Add</button>
+                                    <button type="button" class=" button is-primary" id="save_btn" value="Save">Save</button>
+                                    <button type="button" class=" button is-primary is-outlined" id="cancel_btn" value="cancel">Cancel</button>
+                                
+
+                            </footer>
                         
-                    
-                            <tbody id="table_tbody"></tbody>
-                    
-                       
-    
-                        </table>
-    
-                    
-                       </div>
-                       
-                        <nav class="pagination is-centered" role="navigation" aria-label="pagination" style="margin-top: 40px;">
-                            <!-- <a class="pagination-previous" onclick="onPrevious()">Previous</a>
-                            <a class="pagination-next" onclick="onNext()">Next page</a> -->
-                            <ul class="pagination-list" id="pagination-wrapper">
-                              <!-- <li><a class="pagination-link" aria-label="Goto page 1">1</a></li> -->
-                            </ul>
-                          </nav>
-
-                       
-
-                       
-
+                        </div>
                     </div>
-
-                  
-
+                    
                 </div>
 
-             </div>
-        </div>
+            
+                <div class="container">
+
+                    <div class="card" style="height: 600px; margin-top: 50px;">
+
+                        <div class="container">
+                            <div class="card-content">
+
+                                <h1 style="display: inline-block; margin-left: 28px;" class="title">Document</h1>
+                                <button id="myBtn" class="button is-primary" style="float: right;margin-right: 39px;">Add User</button>
+                                       
+                                <br/>
+
+                                <div class="table-container">
+                                    <table id="table_data" class="table is-fullwidth" style="text-align: center;">
+                                    
+                                            <thead>
+                                        
+                                                <tr>
+                                                    <th>No</th>
+                                                    
+                                                    <th>First na</th>
+
+                                                    <th>Last name</th>
+
+                                                    <th>Age</th>
+
+                                                    <th>Mobile</th>
+
+                                                    <th>Address</th>
+
+                                                    <th>Status</th>
+
+                                                    <th>Manage</th>
+                                                </tr>
+                                                
+                                            </thead>
+                                    
+                                
+                                             <tbody id="table_tbody"></tbody>                              
+                
+                                    </table>
+                                </div>
+                                
+                                <nav class="pagination is-centered" role="navigation" aria-label="pagination" style="margin-top: 40px;">
+                                    <button class="pagination-previous" id="pre">Previous</button>
+                                    <ul class="pagination-list" id="pagination-wrapper"></ul>
+                                    <button class="pagination-next"  id="next">Next page</button>
+                                </nav>
+
+                            
+
+                            
+
+                            </div>                        
+
+                        </div>
+
+                    </div>
+                </div>
 
           
 
